@@ -49,12 +49,12 @@ Before using this collection, ensure you have:
 Description: Creates a new user account.
 
 ### 🔑 3. Generate Token
-Method: POST
-URL: ${baseUrl}/Account/v1/GenerateToken
-Request Body (JSON):
-json
-Copy
-Edit
+- **Method:** `POST`
+- **URL:** `${baseUrl}/Account/v1/GenerateToken`
+- **Request Body (JSON):**
+```json
+```Copy
+```Edit
 {
   "userName": "your_username",
   "password": "your_password"
@@ -62,13 +62,13 @@ Edit
 Description: Generates an authentication token for the user.
 
 ### 📚 4. Assign Books to User
-Method: POST
-URL: ${baseUrl}/BookStore/v1/Books
-Authentication: Basic Auth (Username & Password)
-Request Body (JSON):
-json
-Copy
-Edit
+- **Method:** `POST`
+- **URL:** `${baseUrl}/BookStore/v1/Books`
+- **Authentication:** `Basic Auth (Username & Password)`
+- **Request Body (JSON):**
+```json
+```Copy
+```Edit
 {
   "userId": "your_user_id",
   "collectionOfIsbns": [
@@ -79,13 +79,13 @@ Edit
 Description: Assigns books to a user.
 
 ### 🔒 5. View Logging Model (Authorization Check)
-Method: POST
-URL: ${baseUrl}/Account/v1/Authorized
-Authentication: Bearer Token
-Request Body (JSON):
-json
-Copy
-Edit
+- **Method:** `POST`
+- **URL:** `${baseUrl}/Account/v1/Authorized`
+- **Authentication:** `Bearer Token`
+- **Request Body (JSON):**
+```json
+```Copy
+```Edit
 {
   "userName": "your_username",
   "password": "your_password"
@@ -93,7 +93,7 @@ Edit
 Description: Verifies if the user is authorized.
 
 ### 🚀 Running Tests
-You can use Postman’s Runner to test all endpoints sequentially:
+Use Postman’s Runner to test all endpoints sequentially:
 
 Open Postman, select Runner.
 Choose the Book Store API Testing collection.
