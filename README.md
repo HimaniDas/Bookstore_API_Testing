@@ -1,6 +1,6 @@
-# 📚 Book Store API Testing
+# 📚 Book Store API Testing - Postman Collection
 
-This project contains a **Postman collection** for testing a **Book Store API**. The API provides functionalities to list books, create users, generate authentication tokens, and assign books to users.
+This Postman collection is designed to test the Book Store API provided by `https://bookstore.demoqa.com`. The collection includes various API requests to interact with the Book Store API, such as listing books, creating users, generating tokens, assigning books to users, and checking authorization.
 
 ## 📌 Prerequisites
 
@@ -30,76 +30,78 @@ Before using this collection, ensure you have:
 
 ---
 
-## 📌 API Endpoints
+## 📚 Collection Details
 
-### 📖 1. Book Listing
-- **Method:** `GET`
-- **URL:** `${baseUrl}/BookStore/v1/Books`
-- **Description:** Fetches a list of available books.
+- **Collection Name**: `Book Store API Testing`
+- **Base URL**: `https://bookstore.demoqa.com`
+- **Environment Variables**: None required (but can be added if needed).
 
-### 👤 2. Create User
-- **Method:** `POST`
-- **URL:** `${baseUrl}/Account/v1/User`
-- **Request Body (JSON):**
-  ```json
-  {
-    "userName": "your_username",
-    "password": "your_password"
-  }
-Description: Creates a new user account.
+## 📌 API Endpoints Covered
 
-### 🔑 3. Generate Token
-- **Method:** `POST`
-- **URL:** `${baseUrl}/Account/v1/GenerateToken`
-- **Request Body (JSON):**
-```json
-```Copy
-```Edit
-{
-  "userName": "your_username",
-  "password": "your_password"
-}
-Description: Generates an authentication token for the user.
+1. **Book Listing**:
+   - **Method**: `GET`
+   - **Endpoint**: `/BookStore/v1/Books`
+   - **Description**: Retrieves a list of all books available in the store.
 
-### 📚 4. Assign Books to User
-- **Method:** `POST`
-- **URL:** `${baseUrl}/BookStore/v1/Books`
-- **Authentication:** `Basic Auth (Username & Password)`
-- **Request Body (JSON):**
-```json
-```Copy
-```Edit
-{
-  "userId": "your_user_id",
-  "collectionOfIsbns": [
-    { "isbn": "first_book_isbn" },
-    { "isbn": "second_book_isbn" }
-  ]
-}
-Description: Assigns books to a user.
+2. **Create User**:
+   - **Method**: `POST`
+   - **Endpoint**: `/Account/v1/User`
+   - **Description**: Creates a new user with a username and password.
+   - **Request Body**:
+     ```json
+     {
+       "userName": "your_name",
+       "password": "your_password"
+     }
+     ```
 
-### 🔒 5. View Logging Model (Authorization Check)
-- **Method:** `POST`
-- **URL:** `${baseUrl}/Account/v1/Authorized`
-- **Authentication:** `Bearer Token`
-- **Request Body (JSON):**
-```json
-```Copy
-```Edit
-{
-  "userName": "your_username",
-  "password": "your_password"
-}
-Description: Verifies if the user is authorized.
+3. **Generate Token**:
+   - **Method**: `POST`
+   - **Endpoint**: `/Account/v1/GenerateToken`
+   - **Description**: Generates a token for the user to authenticate subsequent requests.
+   - **Request Body**:
+     ```json
+     {
+       "userName": "your_name",
+       "password": "your_password"
+     }
+     ```
 
-### 🚀 Running Tests
-Use Postman’s Runner to test all endpoints sequentially:
+4. **Assign Books to User**:
+   - **Method**: `POST`
+   - **Endpoint**: `/BookStore/v1/Books`
+   - **Description**: Assigns books to a user by their ISBNs.
+   - **Authentication**: Basic Auth (username: `...`, password: `...`)
+   - **Request Body**:
+     ```json
+     {
+       "userId": "3a4baa55-bc47-4e1f-83f1-bd1120b577ff",
+       "collectionOfIsbns": [
+         {
+           "isbn": "first_book_isbn"
+         },
+         {
+           "isbn": "second_book_isbn"
+         }
+       ]
+     }
+     ```
 
-Open Postman, select Runner.
-Choose the Book Store API Testing collection.
-Click Run.
+5. **View Logging Model (Authorization Check)**:
+   - **Method**: `POST`
+   - **Endpoint**: `/Account/v1/Authorized`
+   - **Description**: Checks if the user is authorized using a bearer token.
+   - **Authentication**: Bearer Token (provided in the request).
+   - **Request Body**:
+     ```json
+     {
+       "userName": "your_name",
+       "password": "your_password"
+     }
+     ```
 
-### 📝 Notes
-Replace your_username, your_password, and your_user_id with actual values.
-Tokens expire after a period; regenerate them as needed.
-Some endpoints require authentication.
+## 📝 Notes
+
+- Ensure that the API is up and running before running the tests.
+- Replace placeholder values (e.g., `userId`, `isbn`) with actual values when testing.
+- The bearer token used in the "View Logging Model" request is a placeholder. Replace it with a valid token generated from the "Generate Token" request.
